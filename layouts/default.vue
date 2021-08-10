@@ -17,10 +17,27 @@ import { Component, Vue } from 'nuxt-property-decorator'
 export default class LayoutDefault extends Vue {}
 </script>
 
-<style>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 body {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--freeui-color-gray-800) var(--freeui-color-gray-100);
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+  *::-webkit-scrollbar-track {
+    background: var(--freeui-color-gray-100);
+  }
+  *::-webkit-scrollbar-thumb {
+    background: var(--freeui-color-gray-800);
+    border: 1px solid var(--freeui-color-gray-900);
+    &:hover {
+      background-color: var(--freeui-color-gray-700);
+    }
+  }
 }
 #__nuxt,
 #__layout,
