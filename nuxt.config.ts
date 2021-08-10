@@ -29,9 +29,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [
-    // { src: '~assets/styles/sass.scss', lang: 'scss' }
-  ],
+  css: [{ src: '~public/css/main.css', lang: 'css' }],
   /*
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
@@ -45,7 +43,7 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxt/typescript-build'],
+  buildModules: ['@nuxt/typescript-build', ['nuxt-storm', { nested: true }]],
   /*
    ** Nuxt.js modules
    */

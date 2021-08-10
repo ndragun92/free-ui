@@ -1,1 +1,1 @@
-{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAAA;EACE;;;AAGF;EACE;EACA","file":"../main.css","sourcesContent":["body {\n  background: red;\n}\n\n.layout {\n  background: red;\n  color: blue;\n}\n"]}
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AAAA;EACE;;;AAGF;EACE;EACA;EACA","file":"../main.css","sourcesContent":["body {\n  background: red;\n}\n\n.layout {\n  background: red;\n  color: blue;\n  font-size: 20px;\n}\n"]}
