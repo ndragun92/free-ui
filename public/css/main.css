@@ -350,7 +350,7 @@ template {
   --freeui-color-gray-900: #111827;
 }
 
-/* @import "../variables/colors"; */
+/* @import "../required/base"; */
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -359,5 +359,8 @@ body {
   font-size: 20px;
 }
 
-/* @import "../variables/colors"; */
+/* @import "../required/base"; */
+body {
+  font-size: 62.5%;
+}
 /*# sourceMappingURL=maps/main.css.map */
