@@ -1,1 +1,0 @@
-{"version":3,"sources":["layout/typography.scss"],"names":[],"mappings":"AACE;EACE","file":"../../layout/typography.css","sourcesContent":[".freeui {\n  &-h1 {\n    font-size: 20px;\n  }\n}\n"]}
