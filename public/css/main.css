@@ -337,8 +337,21 @@ template {
   display: none;
 }
 
-.test {
-  color: gainsboro;
+:root {
+  --color-primary: dodgerblue;
+}
+
+/* @import "../variables/colors"; */
+.freeui-h1 {
+  font-size: 20px;
+  color: var(--color-primary);
+}
+
+/* @import "../variables/colors"; */
+.freeui-btn {
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
 }
 
 body {
