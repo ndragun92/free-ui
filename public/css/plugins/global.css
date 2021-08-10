@@ -336,18 +336,4 @@ template {
 [hidden] {
   display: none;
 }
-
-.test {
-  color: gainsboro;
-}
-
-body {
-  background: red;
-}
-
-.layout {
-  background: red;
-  color: blue;
-  font-size: 20px;
-}
-/*# sourceMappingURL=maps/main.css.map */
+/*# sourceMappingURL=../maps/plugins/global.css.map */
