@@ -1,6 +1,22 @@
 html {
   font-size: 62.5%; // 1 rem = 10px
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar;
 }
+
+*:focus {
+  outline: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 
 body {
   font-family: var(--freeui-font-family);

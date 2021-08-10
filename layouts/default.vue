@@ -1,12 +1,14 @@
 <template>
   <div class="layout">
     <InternalNavbar />
-    <main class="main">
-      <aside class="aside">Aside</aside>
-      <div class="root">
-        <Nuxt />
-      </div>
-    </main>
+    <div class="main__container">
+      <main class="main">
+        <aside class="aside">Aside</aside>
+        <div class="root">
+          <Nuxt />
+        </div>
+      </main>
+    </div>
   </div>
 </template>
 <script>
@@ -30,28 +32,28 @@ body {
 <style lang="scss" scoped>
 @mixin mainContainer {
   padding: 0 20px;
-  width: 100%;
   max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
 }
 .layout {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
 }
 .main {
-  @include mainContainer;
-  display: flex;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
   gap: 20px;
-  height: 100%;
+  min-height: 100%;
+  &__container {
+    @include mainContainer;
+  }
 }
 .aside {
-  width: 300px;
   border-right: 1px solid var(--freeui-color-gray-100);
   padding: 20px 0;
 }
 .root {
-  flex-grow: 1;
-  min-width: 0;
   padding: 20px 0;
 }
 </style>
