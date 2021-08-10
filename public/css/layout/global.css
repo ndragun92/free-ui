@@ -1,4 +1,9 @@
-.test {
-  color: gainsboro;
+:root {
+  --color-primary: dodgerblue;
+}
+
+.freeui-h1 {
+  font-size: 20px;
+  color: var(--color-primary);
 }
 /*# sourceMappingURL=../maps/layout/global.css.map */

@@ -1,0 +1,10 @@
+:root {
+  --color-primary: dodgerblue;
+}
+
+.freeui-btn {
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
+}
+/*# sourceMappingURL=../maps/ui/button.css.map */

@@ -1,1 +1,1 @@
-{"version":3,"sources":["layout/global.scss"],"names":[],"mappings":"AAAA;EACE","file":"../../layout/global.css","sourcesContent":[".test {\n  color: gainsboro;\n}\n"]}
+{"version":3,"sources":["layout/global.scss"],"names":[],"mappings":"AAAA;EACE;;;AAIA;EACE;EACA","file":"../../layout/global.css","sourcesContent":[":root {\n  --color-primary: dodgerblue;\n}\n\n.freeui {\n  &-h1 {\n    font-size: 20px;\n    color: var(--color-primary);\n  }\n}\n"]}

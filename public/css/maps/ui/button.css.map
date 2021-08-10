@@ -1,0 +1,1 @@
+{"version":3,"sources":["ui/button.scss"],"names":[],"mappings":"AAAA;EACE;;;AAIA;EACE;EACA;EACA","file":"../../ui/button.css","sourcesContent":[":root {\n  --color-primary: dodgerblue;\n}\n\n.freeui {\n  &-btn {\n    width: 20px;\n    height: 20px;\n    color: var(--color-primary);\n  }\n}\n"]}
