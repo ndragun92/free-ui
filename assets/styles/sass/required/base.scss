@@ -1,6 +1,10 @@
 @import "plugins/normalize";
 @import "variables/colors";
 
-body {
+html {
   font-size: 62.5%; // 1 rem = 10px
+}
+
+body {
+  font-size: 1.4rem;
 }

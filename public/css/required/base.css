@@ -350,7 +350,11 @@ template {
   --freeui-color-gray-900: #111827;
 }
 
-body {
+html {
   font-size: 62.5%;
+}
+
+body {
+  font-size: 1.4rem;
 }
 /*# sourceMappingURL=../maps/required/base.css.map */
