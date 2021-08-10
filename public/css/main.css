@@ -351,6 +351,10 @@ template {
 }
 
 /* @import "../variables/colors"; */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .freeui-h1 {
   font-size: 20px;
 }
