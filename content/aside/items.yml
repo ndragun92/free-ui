@@ -1,0 +1,15 @@
+navigation:
+  - id: "getting-started"
+    name: "Getting started"
+    items:
+      - name: "Introduction"
+        slug: "getting-started/introduction"
+      - name: "Download"
+        slug: "getting-started/download"
+  - id: "layout"
+    name: "Layout"
+    items:
+      - name: "Typography"
+        slug: "layout/typography"
+      - name: "Breakpoints"
+        slug: "layout/breakpoints"

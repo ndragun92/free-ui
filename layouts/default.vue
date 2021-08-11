@@ -4,7 +4,24 @@
     <div class="main__container">
       <main class="main">
         <aside class="aside">
-          <div class="aside__container">Aside Inner</div>
+          <div class="aside__container">
+            <ul>
+              <li
+                v-for="(category, categoryIndex) in asideNavigation"
+                :key="`${category.id}--${categoryIndex}`"
+              >
+                {{ category.name }}
+                <ul>
+                  <li
+                    v-for="(item, itemIndex) in category.items"
+                    :key="`${item.slug}--${itemIndex}-${categoryIndex}`"
+                  >
+                    {{ item.name }}
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </aside>
         <div class="root">
           <Nuxt />
@@ -13,10 +30,29 @@
     </div>
   </div>
 </template>
-<script>
+
+<script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
+
+interface AsideNavigationInterface {
+  id: string
+  name: string
+  items: {
+    name: string
+    slug: string
+  }[]
+}
+
 @Component
-export default class LayoutDefault extends Vue {}
+export default class LayoutDefault extends Vue {
+  // Data
+  asideNavigation: AsideNavigationInterface[] = []
+  // Hooks
+  async fetch() {
+    const data = await this.$content('aside/items').fetch()
+    this.asideNavigation = data.navigation as AsideNavigationInterface[]
+  }
+}
 </script>
 
 <style lang="scss">
