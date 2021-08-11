@@ -1,5 +1,5 @@
 <template>
-  <div class="nav">
+  <div ref="nav" class="nav">
     <nav class="nav__main">
       <div class="nav__main-container">
         <div class="nav__main-logo">FREE<span>UI</span></div>
@@ -24,7 +24,12 @@
         </div>
       </div>
     </nav>
-    <div class="nav__sub">
+    <div
+      class="nav__sub"
+      :class="{
+        'nav__sub--fixed': offsetTop > navHeight,
+      }"
+    >
       <div class="nav__sub-container">
         <div class="nav__sub-search">
           <input type="search" placeholder="Search docs..." />
@@ -33,6 +38,32 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator'
+@Component
+export default class InternalNavbar extends Vue {
+  // Data
+  offsetTop: number = 0
+  navHeight: number = 100
+  // Hooks
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener('scroll', this.onScroll)
+      this.navHeight = (this.$refs.nav as HTMLElement).offsetHeight
+    })
+  }
+
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.onScroll)
+  }
+
+  // Methods
+  onScroll() {
+    this.offsetTop = window.top.scrollY
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 @mixin navContainer {
@@ -76,6 +107,22 @@
     background-color: var(--freeui-color-gray-100);
     border-bottom: 1px solid var(--freeui-color-gray-200);
     height: 40px;
+    &--fixed {
+      position: fixed;
+      z-index: 90;
+      top: 0;
+      left: 0;
+      right: 0;
+      animation: fadeIn 0.5s linear;
+      @keyframes fadeIn {
+        0% {
+          transform: translateY(-100%);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+    }
     &-container {
       @include navContainer;
       display: flex;
