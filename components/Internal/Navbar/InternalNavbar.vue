@@ -147,8 +147,9 @@ export default class InternalNavbar extends Vue {
     )
   }
 
-  onBlur($e: Event): void {
-    if ($e.relatedTarget?.localName === 'a') return
+  onBlur($e: FocusEvent): void {
+    const relatedTargetEl = $e.relatedTarget as Element
+    if (relatedTargetEl?.localName === 'a') return
     this.searchDropdownShow = false
   }
   // </editor-fold>

@@ -34,8 +34,10 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { AsideNavigationInterface } from '~/interfaces/internal/InternalLayoutInterface'
-
-@Component
+import InternalNavbar from '~/components/Internal/Navbar/InternalNavbar.vue'
+@Component({
+  components: { InternalNavbar },
+})
 export default class LayoutDefault extends Vue {
   // Data
   asideNavigation: AsideNavigationInterface[] = []
