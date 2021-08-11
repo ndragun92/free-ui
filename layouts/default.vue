@@ -5,13 +5,13 @@
       <main class="main">
         <aside class="aside">
           <div class="aside__container">
-            <ul>
+            <ul v-if="asideNavigation.length">
               <li
                 v-for="(category, categoryIndex) in asideNavigation"
                 :key="`${category.id}--${categoryIndex}`"
               >
                 {{ category.name }}
-                <ul>
+                <ul v-if="category.items.length">
                   <li
                     v-for="(item, itemIndex) in category.items"
                     :key="`${item.slug}--${itemIndex}-${categoryIndex}`"
@@ -33,15 +33,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-
-interface AsideNavigationInterface {
-  id: string
-  name: string
-  items: {
-    name: string
-    slug: string
-  }[]
-}
+import { AsideNavigationInterface } from '~/interfaces/internal/InternalLayoutInterface'
 
 @Component
 export default class LayoutDefault extends Vue {
@@ -50,6 +42,7 @@ export default class LayoutDefault extends Vue {
   // Hooks
   async fetch() {
     const data = await this.$content('aside/items').fetch()
+    // @ts-ignore
     this.asideNavigation = data.navigation as AsideNavigationInterface[]
   }
 }

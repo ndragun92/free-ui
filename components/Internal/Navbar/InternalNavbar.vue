@@ -32,7 +32,29 @@
     >
       <div class="nav__sub-container">
         <div class="nav__sub-search">
-          <input type="search" placeholder="Search docs..." />
+          <input
+            v-model.trim="searchKeyword"
+            type="search"
+            placeholder="Search docs..."
+          />
+          <div class="nav__sub-search__dropdown">
+            <ul v-if="returnFilteredNavigation.length">
+              <li
+                v-for="(category, categoryIndex) in returnFilteredNavigation"
+                :key="`${category.id}--${categoryIndex}`"
+              >
+                <span v-html="returnHighlightedName(category.name)" />
+                <ul v-if="category.items.length">
+                  <li
+                    v-for="(item, itemIndex) in category.items"
+                    :key="`${item.slug}--${itemIndex}-${categoryIndex}`"
+                  >
+                    <span v-html="returnHighlightedName(item.name)" />
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -40,7 +62,13 @@
 </template>
 
 <script lang="ts">
+import cloneDeep from 'lodash/cloneDeep'
+import escapeRegExp from 'lodash/escapeRegExp'
 import { Component, Vue } from 'nuxt-property-decorator'
+import {
+  AsideNavigationInterface,
+  AsideNavigationItemInterface,
+} from '~/interfaces/internal/InternalLayoutInterface'
 @Component
 export default class InternalNavbar extends Vue {
   // Data
@@ -62,6 +90,44 @@ export default class InternalNavbar extends Vue {
   onScroll() {
     this.offsetTop = window.top.scrollY
   }
+
+  // <editor-fold desc="Subnav Search">
+  // Data
+  searchKeyword: string = ''
+  asideNavigation: AsideNavigationInterface[] = []
+  // Hooks
+  async fetch() {
+    const data = await this.$content('aside/items').fetch()
+    // @ts-ignore
+    this.asideNavigation = data.navigation as AsideNavigationInterface[]
+  }
+
+  // Getters
+  get returnFilteredNavigation(): AsideNavigationInterface[] {
+    const asideNavigationData = cloneDeep(this.asideNavigation)
+    return asideNavigationData.filter((category) => {
+      const itemNames: AsideNavigationItemInterface[] = category.items.filter(
+        (item: AsideNavigationItemInterface) =>
+          this.searchKeyword
+            .toLowerCase()
+            .split(' ')
+            .every((v) => item.searchIndex.toLowerCase().includes(v))
+      )
+      category.items = itemNames
+      return !!itemNames.length
+    })
+  }
+
+  // Methods
+  returnHighlightedName(text: string): string {
+    return text.replace(
+      new RegExp(escapeRegExp(this.searchKeyword), 'gi'),
+      (match) => {
+        return '<span class="highlighted__text">' + match + '</span>'
+      }
+    )
+  }
+  // </editor-fold>
 }
 </script>
 
@@ -131,6 +197,7 @@ export default class InternalNavbar extends Vue {
     }
     &-search {
       width: 100%;
+      position: relative;
       input {
         border: none;
         background: transparent;
@@ -139,6 +206,24 @@ export default class InternalNavbar extends Vue {
         max-width: 300px;
         &:focus {
           outline: none;
+        }
+      }
+      &__dropdown {
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        max-width: 300px;
+        background: red;
+        ul {
+          li {
+            ::v-deep {
+              .highlighted__text {
+                color: yellow;
+              }
+            }
+          }
         }
       }
     }
