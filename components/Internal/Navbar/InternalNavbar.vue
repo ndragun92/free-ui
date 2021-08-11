@@ -36,8 +36,13 @@
             v-model.trim="searchKeyword"
             type="search"
             placeholder="Search docs..."
+            @focus="searchDropdownShow = true"
+            @blur="onBlur"
           />
-          <div class="nav__sub-search__dropdown">
+          <div
+            v-if="searchDropdownShow && searchKeyword.length"
+            class="nav__sub-search__dropdown"
+          >
             <ul v-if="returnFilteredNavigation.length">
               <li
                 v-for="(category, categoryIndex) in returnFilteredNavigation"
@@ -49,9 +54,16 @@
                     v-for="(item, itemIndex) in category.items"
                     :key="`${item.slug}--${itemIndex}-${categoryIndex}`"
                   >
-                    <span v-html="returnHighlightedName(item.name)" />
+                    <nuxt-link :to="item.slug">
+                      <span v-html="returnHighlightedName(item.name)" />
+                    </nuxt-link>
                   </li>
                 </ul>
+              </li>
+            </ul>
+            <ul v-else>
+              <li>
+                <span style="margin-bottom: 0">No results</span>
               </li>
             </ul>
           </div>
@@ -64,7 +76,7 @@
 <script lang="ts">
 import cloneDeep from 'lodash/cloneDeep'
 import escapeRegExp from 'lodash/escapeRegExp'
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Vue, Watch } from 'nuxt-property-decorator'
 import {
   AsideNavigationInterface,
   AsideNavigationItemInterface,
@@ -92,8 +104,15 @@ export default class InternalNavbar extends Vue {
   }
 
   // <editor-fold desc="Subnav Search">
+  // Watch
+  @Watch('$route.path')
+  onWatchRoutePathChange(): void {
+    this.searchDropdownShow = false
+  }
+
   // Data
   searchKeyword: string = ''
+  searchDropdownShow: boolean = false
   asideNavigation: AsideNavigationInterface[] = []
   // Hooks
   async fetch() {
@@ -127,6 +146,11 @@ export default class InternalNavbar extends Vue {
       }
     )
   }
+
+  onBlur($e: Event): void {
+    if ($e.relatedTarget?.localName === 'a') return
+    this.searchDropdownShow = false
+  }
   // </editor-fold>
 }
 </script>
@@ -154,7 +178,7 @@ export default class InternalNavbar extends Vue {
       font-size: 2.4rem;
       span {
         font-weight: 600;
-        color: dodgerblue;
+        color: var(--freeui-color-blue-500);
       }
     }
     &-links {
@@ -214,13 +238,54 @@ export default class InternalNavbar extends Vue {
         left: 0;
         z-index: 100;
         width: 100%;
-        max-width: 300px;
-        background: red;
+        max-width: 280px;
+        background-color: var(--freeui-color-gray-100);
+        border: 1px solid var(--freeui-color-gray-200);
+        border-top: none;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        padding: 15px 10px;
         ul {
+          margin: 0;
+          list-style: none;
           li {
             ::v-deep {
               .highlighted__text {
-                color: yellow;
+                color: var(--freeui-color-blue-600);
+              }
+            }
+          }
+        }
+        & > ul {
+          padding: 0;
+          & > li {
+            font-size: 12px;
+            font-weight: 600;
+            &:not(:last-child) {
+              margin-bottom: 15px;
+            }
+            & > span {
+              display: block;
+              margin-bottom: 5px;
+              text-transform: uppercase;
+            }
+            ul {
+              padding: 0 0 0 10px;
+              li {
+                font-size: 12px;
+                font-weight: 400;
+                &:not(:last-child) {
+                  margin-bottom: 5px;
+                }
+                a {
+                  color: var(--freeui-color-gray-500);
+                  text-decoration: none;
+                  & > span {
+                    &:before {
+                      content: '- ';
+                    }
+                  }
+                }
               }
             }
           }

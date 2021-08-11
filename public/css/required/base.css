@@ -348,6 +348,16 @@ template {
   --freeui-color-gray-700: #374151;
   --freeui-color-gray-800: #1F2937;
   --freeui-color-gray-900: #111827;
+  --freeui-color-blue-50: #EFF6FF;
+  --freeui-color-blue-100: #DBEAFE;
+  --freeui-color-blue-200: #BFDBFE;
+  --freeui-color-blue-300: #93C5FD;
+  --freeui-color-blue-400: #60A5FA;
+  --freeui-color-blue-500: #3B82F6;
+  --freeui-color-blue-600: #2563EB;
+  --freeui-color-blue-700: #1D4ED8;
+  --freeui-color-blue-800: #1E40AF;
+  --freeui-color-blue-900: #1E3A8A;
 }
 
 :root {
