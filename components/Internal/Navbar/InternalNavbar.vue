@@ -45,12 +45,12 @@ import { Component, Vue } from 'nuxt-property-decorator'
 export default class InternalNavbar extends Vue {
   // Data
   offsetTop: number = 0
-  navHeight: number = 100
+  navHeight: number = 60
   // Hooks
   mounted() {
     this.$nextTick(() => {
       window.addEventListener('scroll', this.onScroll)
-      this.navHeight = (this.$refs.nav as HTMLElement).offsetHeight
+      // this.navHeight = (this.$refs.nav as HTMLElement).offsetHeight
     })
   }
 

@@ -3,7 +3,9 @@
     <InternalNavbar />
     <div class="main__container">
       <main class="main">
-        <aside class="aside">Aside</aside>
+        <aside class="aside">
+          <div class="aside__container">Aside Inner</div>
+        </aside>
         <div class="root">
           <Nuxt />
         </div>
@@ -69,6 +71,11 @@ html {
 .aside {
   border-right: 1px solid var(--freeui-color-gray-100);
   padding: 20px 0;
+  &__container {
+    position: sticky;
+    top: 60px;
+    z-index: 1;
+  }
 }
 .root {
   padding: 20px 0;
