@@ -1,0 +1,13 @@
+.freeui-alert {
+  padding: 20px;
+}
+.freeui-alert--primary {
+  background-color: dodgerblue;
+}
+.freeui-alert--warning {
+  background-color: yellow;
+}
+.freeui-alert--bordered {
+  border: 1px solid red;
+}
+/*# sourceMappingURL=../maps/ui/alert.css.map */

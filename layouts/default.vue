@@ -5,7 +5,7 @@
       <main class="main">
         <aside class="aside">
           <div class="aside__container">
-            <ul v-if="asideNavigation.length">
+            <ul v-if="asideNavigation.length" class="aside__ul-main">
               <li
                 v-for="(category, categoryIndex) in asideNavigation"
                 :key="`${category.id}--${categoryIndex}`"
@@ -16,7 +16,7 @@
                     v-for="(item, itemIndex) in category.items"
                     :key="`${item.slug}--${itemIndex}-${categoryIndex}`"
                   >
-                    {{ item.name }}
+                    <nuxt-link :to="item.slug">{{ item.name }}</nuxt-link>
                   </li>
                 </ul>
               </li>
@@ -106,6 +106,42 @@ html {
     position: sticky;
     top: 60px;
     z-index: 1;
+  }
+  &__ul {
+    &-main {
+      list-style: none;
+      padding: 0;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      ul {
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 400;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        li {
+          &:before {
+            content: '-';
+            margin-right: 5px;
+            color: var(--freeui-color-gray-600);
+          }
+          a {
+            text-decoration: none;
+            color: var(--freeui-color-gray-600);
+            &:hover,
+            &.nuxt-link-exact-active {
+              color: var(--freeui-color-blue-600);
+            }
+          }
+        }
+      }
+    }
   }
 }
 .root {
