@@ -77,6 +77,9 @@ html {
 #__layout > div {
   height: 100%;
 }
+.language-html * {
+  text-shadow: none !important;
+}
 </style>
 
 <style lang="scss" scoped>

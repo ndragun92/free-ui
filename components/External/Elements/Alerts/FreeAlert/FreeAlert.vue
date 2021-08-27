@@ -9,9 +9,9 @@
       <option value="error">error</option>
     </select>
     <button type="button" @click="bordered = !bordered">Bordered</button>
-    <pre>
-      {{ returnHtmlExample }}
-    </pre>
+    <client-only>
+      <vue-prism language="html" :code="returnHtmlExample" />
+    </client-only>
     <div
       class="freeui-alert"
       :class="returnClass"

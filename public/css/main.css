@@ -395,10 +395,6 @@ body {
   height: 100%;
 }
 
-.freeui-h1 {
-  font-size: 20px;
-}
-
 .freeui-alert {
   padding: 20px;
 }
@@ -410,5 +406,9 @@ body {
 }
 .freeui-alert--bordered {
   border: 1px solid red;
+}
+
+.freeui-h1 {
+  font-size: 20px;
 }
 /*# sourceMappingURL=maps/main.css.map */
