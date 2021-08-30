@@ -38,7 +38,10 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [{ src: '~plugins/prismjs.client', mode: 'client' }],
+  plugins: [
+    { src: '~plugins/prismjs.client', mode: 'client' },
+    { src: '~plugins/clipboard2.client', mode: 'client' },
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

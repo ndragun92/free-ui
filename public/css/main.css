@@ -339,25 +339,65 @@ template {
 
 :root {
   --freeui-color-gray-50: #F9FAFB;
+  --freeui-color-gray-50-rgb: 249, 250, 251;
   --freeui-color-gray-100: #F3F4F6;
+  --freeui-color-gray-100-rgb: 243, 244, 246;
   --freeui-color-gray-200: #E5E7EB;
+  --freeui-color-gray-200-rgb: 229, 231, 235;
   --freeui-color-gray-300: #D1D5DB;
+  --freeui-color-gray-300-rgb: 209, 213, 219;
   --freeui-color-gray-400: #9CA3AF;
+  --freeui-color-gray-400-rgb: 156, 163, 175;
   --freeui-color-gray-500: #6B7280;
+  --freeui-color-gray-500-rgb: 107, 114, 128;
   --freeui-color-gray-600: #4B5563;
+  --freeui-color-gray-600-rgb: 75, 85, 99;
   --freeui-color-gray-700: #374151;
+  --freeui-color-gray-700-rgb: 55, 65, 81;
   --freeui-color-gray-800: #1F2937;
+  --freeui-color-gray-800-rgb: 31, 41, 55;
   --freeui-color-gray-900: #111827;
+  --freeui-color-gray-900-rgb: 17, 24, 39;
   --freeui-color-blue-50: #EFF6FF;
+  --freeui-color-blue-50-rgb: 239, 246, 255;
   --freeui-color-blue-100: #DBEAFE;
+  --freeui-color-blue-100-rgb: 219, 234, 254;
   --freeui-color-blue-200: #BFDBFE;
+  --freeui-color-blue-200-rgb: 191, 219, 254;
   --freeui-color-blue-300: #93C5FD;
+  --freeui-color-blue-300-rgb: 147, 197, 253;
   --freeui-color-blue-400: #60A5FA;
+  --freeui-color-blue-400-rgb: 96, 165, 250;
   --freeui-color-blue-500: #3B82F6;
+  --freeui-color-blue-500-rgb: 59, 130, 246;
   --freeui-color-blue-600: #2563EB;
+  --freeui-color-blue-600-rgb: 37, 99, 235;
   --freeui-color-blue-700: #1D4ED8;
+  --freeui-color-blue-700-rgb: 29, 78, 216;
   --freeui-color-blue-800: #1E40AF;
+  --freeui-color-blue-800-rgb: 30, 64, 175;
   --freeui-color-blue-900: #1E3A8A;
+  --freeui-color-blue-900-rgb: 30, 58, 138;
+  --freeui-color-green-50: #ECFDF5;
+  --freeui-color-green-50-rgb: 236, 253, 245;
+  --freeui-color-green-100: #D1FAE5;
+  --freeui-color-green-100-rgb: 209, 250, 229;
+  --freeui-color-green-200: #A7F3D0;
+  --freeui-color-green-200-rgb: 167, 243, 208;
+  --freeui-color-green-300: #6EE7B7;
+  --freeui-color-green-300-rgb: 110, 231, 183;
+  --freeui-color-green-400: #34D399;
+  --freeui-color-green-400-rgb: 52, 211, 153;
+  --freeui-color-green-500: #10B981;
+  --freeui-color-green-500-rgb: 16, 185, 129;
+  --freeui-color-green-600: #059669;
+  --freeui-color-green-600-rgb: 5, 150, 105;
+  --freeui-color-green-700: #047857;
+  --freeui-color-green-700-rgb: 4, 120, 87;
+  --freeui-color-green-800: #065F46;
+  --freeui-color-green-800-rgb: 6, 95, 70;
+  --freeui-color-green-900: #064E3B;
+  --freeui-color-green-900-rgb: 6, 78, 59;
 }
 
 :root {
@@ -395,20 +435,51 @@ body {
   height: 100%;
 }
 
+.freeui-h1 {
+  font-size: 20px;
+}
+
 .freeui-alert {
   padding: 20px;
-}
-.freeui-alert--primary {
-  background-color: dodgerblue;
-}
-.freeui-alert--warning {
-  background-color: yellow;
+  color: var(--freeui-color-gray-50);
 }
 .freeui-alert--bordered {
   border: 1px solid red;
 }
-
-.freeui-h1 {
-  font-size: 20px;
+.freeui-alert--primary {
+  background-color: rgba(var(--freeui-color-blue-600-rgb), 0.15);
+  border-color: rgba(var(--freeui-color-blue-600-rgb), 0.25);
+  color: rgba(var(--freeui-color-blue-600-rgb), 1);
+}
+.freeui-alert--secondary {
+  background-color: rgba(var(--freeui-color-gray-600-rgb), 0.15);
+  border-color: rgba(var(--freeui-color-gray-600-rgb), 0.25);
+  color: rgba(var(--freeui-color-gray-600-rgb), 1);
+}
+.freeui-alert--success {
+  background-color: rgba(var(--freeui-color-green-600-rgb), 0.15);
+  border-color: rgba(var(--freeui-color-green-600-rgb), 0.25);
+  color: rgba(var(--freeui-color-green-600-rgb), 1);
+}
+.freeui-alert--warning {
+  background-color: yellow;
+}
+.freeui-alert__radius--xsm {
+  border-radius: 2px;
+}
+.freeui-alert__radius--sm {
+  border-radius: 4px;
+}
+.freeui-alert__radius--md {
+  border-radius: 6px;
+}
+.freeui-alert__radius--lg {
+  border-radius: 8px;
+}
+.freeui-alert__radius--xlg {
+  border-radius: 10px;
+}
+.freeui-alert__radius--full {
+  border-radius: 9999px;
 }
 /*# sourceMappingURL=maps/main.css.map */

@@ -1,14 +1,47 @@
 .freeui {
   &-alert {
     padding: 20px;
+    color: var(--freeui-color-gray-50);
+    &--bordered {
+      border: 1px solid red;
+    }
     &--primary {
-      background-color: dodgerblue;
+      background-color: rgba(var(--freeui-color-blue-600-rgb), 0.15);
+      border-color: rgba(var(--freeui-color-blue-600-rgb), 0.25);
+      color: rgba(var(--freeui-color-blue-600-rgb), 1);
+    }
+    &--secondary {
+      background-color: rgba(var(--freeui-color-gray-600-rgb), 0.15);
+      border-color: rgba(var(--freeui-color-gray-600-rgb), 0.25);
+      color: rgba(var(--freeui-color-gray-600-rgb), 1);
+    }
+    &--success {
+      background-color: rgba(var(--freeui-color-green-600-rgb), 0.15);
+      border-color: rgba(var(--freeui-color-green-600-rgb), 0.25);
+      color: rgba(var(--freeui-color-green-600-rgb), 1);
     }
     &--warning {
       background-color: yellow;
     }
-    &--bordered {
-      border: 1px solid red;
+    &__radius{
+      &--xsm {
+        border-radius: 2px;
+      }
+      &--sm {
+        border-radius: 4px;
+      }
+      &--md {
+        border-radius: 6px;
+      }
+      &--lg {
+        border-radius: 8px;
+      }
+      &--xlg {
+        border-radius: 10px;
+      }
+      &--full {
+        border-radius: 9999px;
+      }
     }
   }
 }

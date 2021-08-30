@@ -1,13 +1,44 @@
 .freeui-alert {
   padding: 20px;
+  color: var(--freeui-color-gray-50);
+}
+.freeui-alert--bordered {
+  border: 1px solid red;
 }
 .freeui-alert--primary {
-  background-color: dodgerblue;
+  background-color: rgba(var(--freeui-color-blue-600-rgb), 0.15);
+  border-color: rgba(var(--freeui-color-blue-600-rgb), 0.25);
+  color: rgba(var(--freeui-color-blue-600-rgb), 1);
+}
+.freeui-alert--secondary {
+  background-color: rgba(var(--freeui-color-gray-600-rgb), 0.15);
+  border-color: rgba(var(--freeui-color-gray-600-rgb), 0.25);
+  color: rgba(var(--freeui-color-gray-600-rgb), 1);
+}
+.freeui-alert--success {
+  background-color: rgba(var(--freeui-color-green-600-rgb), 0.15);
+  border-color: rgba(var(--freeui-color-green-600-rgb), 0.25);
+  color: rgba(var(--freeui-color-green-600-rgb), 1);
 }
 .freeui-alert--warning {
   background-color: yellow;
 }
-.freeui-alert--bordered {
-  border: 1px solid red;
+.freeui-alert__radius--xsm {
+  border-radius: 2px;
+}
+.freeui-alert__radius--sm {
+  border-radius: 4px;
+}
+.freeui-alert__radius--md {
+  border-radius: 6px;
+}
+.freeui-alert__radius--lg {
+  border-radius: 8px;
+}
+.freeui-alert__radius--xlg {
+  border-radius: 10px;
+}
+.freeui-alert__radius--full {
+  border-radius: 9999px;
 }
 /*# sourceMappingURL=../maps/ui/alert.css.map */

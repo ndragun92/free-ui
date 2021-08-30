@@ -6,7 +6,7 @@
         <div>
           <ul class="nav__main-links">
             <li>
-              <a href="#">Home</a>
+              <a @click="onToggleBg">Home</a>
             </li>
             <li>
               <a href="#">Docs</a>
@@ -153,8 +153,22 @@ export default class InternalNavbar extends Vue {
     this.searchDropdownShow = false
   }
   // </editor-fold>
+
+  onToggleBg() {
+    if (document.body.classList.contains('freeui--dark')) {
+      document.body.classList.remove('freeui--dark')
+    } else {
+      document.body.classList.add('freeui--dark')
+    }
+  }
 }
 </script>
+
+<style>
+body.freeui--dark {
+  background-color: var(--freeui-color-gray-900);
+}
+</style>
 
 <style lang="scss" scoped>
 @mixin navContainer {
@@ -168,6 +182,10 @@ export default class InternalNavbar extends Vue {
     background-color: var(--freeui-color-gray-50);
     border-bottom: 1px solid var(--freeui-color-gray-200);
     height: 60px;
+    .freeui--dark & {
+      background-color: var(--freeui-color-gray-800);
+      border-color: var(--freeui-color-gray-700);
+    }
     &-container {
       @include navContainer;
       display: flex;
@@ -177,6 +195,10 @@ export default class InternalNavbar extends Vue {
     }
     &-logo {
       font-size: 2.4rem;
+      color: var(--freeui-color-gray-900);
+      .freeui--dark & {
+        color: var(--freeui-color-gray-50);
+      }
       span {
         font-weight: 600;
         color: var(--freeui-color-blue-500);
@@ -190,6 +212,9 @@ export default class InternalNavbar extends Vue {
         a {
           text-decoration: none;
           color: var(--freeui-color-gray-900);
+          .freeui--dark & {
+            color: var(--freeui-color-gray-50);
+          }
         }
       }
     }
@@ -198,6 +223,10 @@ export default class InternalNavbar extends Vue {
     background-color: var(--freeui-color-gray-100);
     border-bottom: 1px solid var(--freeui-color-gray-200);
     height: 40px;
+    .freeui--dark & {
+      background-color: var(--freeui-color-gray-900);
+      border-color: var(--freeui-color-gray-800);
+    }
     &--fixed {
       position: fixed;
       z-index: 90;
@@ -229,6 +258,16 @@ export default class InternalNavbar extends Vue {
         height: 30px;
         width: 100%;
         max-width: 300px;
+        color: var(--freeui-color-gray-900);
+        .freeui--dark & {
+          color: var(--freeui-color-gray-400);
+        }
+        &::placeholder {
+          color: var(--freeui-color-gray-700);
+          .freeui--dark & {
+            color: var(--freeui-color-gray-600);
+          }
+        }
         &:focus {
           outline: none;
         }

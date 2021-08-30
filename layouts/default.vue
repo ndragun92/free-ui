@@ -80,6 +80,64 @@ html {
 .language-html * {
   text-shadow: none !important;
 }
+:not(pre) > code[class*='language-'],
+pre[class*='language-'] {
+  background: var(--freeui-color-gray-900) !important;
+  border: 1px solid var(--freeui-color-gray-800) !important;
+  border-radius: 3px !important;
+  .freeui--dark & {
+    background: var(--freeui-color-gray-800) !important;
+    border-color: var(--freeui-color-gray-700) !important;
+  }
+}
+
+pre[class*='language-'] {
+  margin: 0 !important;
+}
+
+.freeuiI__codeBlock {
+  border: 1px solid var(--freeui-color-gray-100);
+  padding: 10px;
+  .freeui--dark & {
+    border-color: var(--freeui-color-gray-800);
+  }
+  &-pre {
+    border-top: 1px solid var(--freeui-color-gray-100);
+    margin-top: 10px;
+    padding-top: 10px;
+    .freeui--dark & {
+      border-color: var(--freeui-color-gray-800);
+    }
+  }
+  &-prism {
+    &-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-label,
+    &-copy {
+      background-color: var(--freeui-color-gray-900);
+      border: 1px solid var(--freeui-color-gray-800);
+      color: var(--freeui-color-gray-400);
+      display: inline-block;
+      position: relative;
+      bottom: -1px;
+      left: 10px;
+      font-size: 12px;
+      padding: 3px 5px;
+      .freeui--dark & {
+        color: var(--freeui-color-gray-600);
+        background-color: var(--freeui-color-gray-800);
+        border-color: var(--freeui-color-gray-700);
+      }
+    }
+    &-copy {
+      left: initial;
+      right: 10px;
+      cursor: pointer;
+    }
+  }
+}
 </style>
 
 <style lang="scss" scoped>
@@ -104,11 +162,18 @@ html {
 }
 .aside {
   border-right: 1px solid var(--freeui-color-gray-100);
+  .freeui--dark & {
+    border-color: var(--freeui-color-gray-800);
+  }
   padding: 20px 0;
   &__container {
     position: sticky;
     top: 60px;
     z-index: 1;
+    color: var(--freeui-color-gray-900);
+    .freeui--dark & {
+      color: var(--freeui-color-gray-600);
+    }
   }
   &__ul {
     &-main {
@@ -133,10 +198,16 @@ html {
             content: '-';
             margin-right: 5px;
             color: var(--freeui-color-gray-600);
+            .freeui--dark & {
+              color: var(--freeui-color-gray-400);
+            }
           }
           a {
             text-decoration: none;
             color: var(--freeui-color-gray-600);
+            .freeui--dark & {
+              color: var(--freeui-color-gray-400);
+            }
             &:hover,
             &.nuxt-link-exact-active {
               color: var(--freeui-color-blue-600);
