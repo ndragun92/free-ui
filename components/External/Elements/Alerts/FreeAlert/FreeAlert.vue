@@ -20,6 +20,7 @@
           <option value="xlg">xlg</option>
           <option value="full">full</option>
         </select>
+        <button type="button" @click="saveVariant">Save variant</button>
       </div>
       <div
         class="freeui-alert"
@@ -33,14 +34,16 @@
       />
       <internal-code-clipboard :code="returnHtmlExample" />
     </div>
+    <internal-code-variants :variants="savedVariants" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import InternalCodeClipboard from '~/components/Internal/Code/Clipboard/InternalCodeClipboard.vue'
+import InternalCodeVariants from '~/components/Internal/Code/Variants/InternalCodeVariants.vue'
 @Component({
-  components: { InternalCodeClipboard },
+  components: { InternalCodeVariants, InternalCodeClipboard },
 })
 export default class FreeAlert extends Vue {
   // Data
@@ -78,6 +81,11 @@ export default class FreeAlert extends Vue {
   // Methods
   onBlur(e: IntersectionObserverEntry) {
     this.content = e.target.textContent?.trim() || ''
+  }
+
+  savedVariants: string[] = []
+  saveVariant() {
+    this.savedVariants.push(this.returnHtmlExample)
   }
 }
 </script>

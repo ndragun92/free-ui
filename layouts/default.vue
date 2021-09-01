@@ -126,7 +126,7 @@ pre[class*='language-'] {
       font-size: 12px;
       padding: 3px 5px;
       .freeui--dark & {
-        color: var(--freeui-color-gray-600);
+        color: var(--freeui-color-gray-400);
         background-color: var(--freeui-color-gray-800);
         border-color: var(--freeui-color-gray-700);
       }
