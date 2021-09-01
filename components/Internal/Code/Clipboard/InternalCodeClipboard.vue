@@ -4,8 +4,16 @@
       <div class="freeuiI__codeBlock-prism">
         <div class="freeuiI__codeBlock-prism-actions">
           <div class="freeuiI__codeBlock-prism-label">Code example</div>
-          <div v-clipboard:copy="code" class="freeuiI__codeBlock-prism-copy">
-            Copy
+          <div>
+            <div
+              class="freeuiI__codeBlock-prism-copy"
+              @click="$emit('save-variant')"
+            >
+              Save variant
+            </div>
+            <div v-clipboard:copy="code" class="freeuiI__codeBlock-prism-copy">
+              Copy
+            </div>
           </div>
         </div>
         <vue-prism language="html" :code="code" />

@@ -137,6 +137,148 @@ pre[class*='language-'] {
       cursor: pointer;
     }
   }
+  &-optionsOld {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    gap: 5px;
+    padding: 5px;
+    background-color: var(--freeui-color-gray-100);
+    .freeui--dark & {
+      background-color: var(--freeui-color-gray-800);
+    }
+    & > div {
+      background-color: var(--freeui-color-gray-200);
+      border: 1px solid var(--freeui-color-gray-300);
+      padding: 5px;
+      .freeui--dark & {
+        background-color: var(--freeui-color-gray-700);
+        border: 1px solid var(--freeui-color-gray-600);
+      }
+      & > label {
+        display: block;
+        font-weight: 500;
+        font-size: 12px;
+        margin-bottom: 5px;
+        color: var(--freeui-color-gray-900);
+        .freeui--dark & {
+          color: var(--freeui-color-gray-400);
+        }
+      }
+      & > :not(label) {
+        color: var(--freeui-color-gray-500);
+        .freeui--dark & {
+          color: var(--freeui-color-gray-300);
+        }
+      }
+      & > button {
+        cursor: pointer;
+        padding: 0 10px;
+        height: 30px;
+        border: none;
+        background-color: transparent;
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+      & > input {
+        background-color: red;
+      }
+      & > select {
+        height: 30px;
+        width: 100%;
+        font-size: 12px;
+        background-color: transparent;
+        border: none;
+        margin: 0;
+        padding: 0;
+        option {
+          background-color: transparent;
+          color: var(--freeui-color-gray-900);
+          padding: 3px 5px;
+          font-size: 12px;
+          .freeui--dark & {
+            color: var(--freeui-color-gray-300);
+          }
+          &:focus,
+          &:active,
+          &:checked {
+            background: linear-gradient(
+              var(--freeui-color-blue-500),
+              var(--freeui-color-blue-500)
+            );
+            background-color: var(
+              --freeui-color-blue-500
+            ) !important; /* for IE */
+          }
+        }
+      }
+    }
+  }
+  &-options {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 5px;
+    $height: 30px;
+    & > label {
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      height: $height;
+      background-color: var(--freeui-color-gray-200);
+      color: var(--freeui-color-gray-900);
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      .freeui--dark & {
+        background-color: var(--freeui-color-gray-800);
+        color: var(--freeui-color-gray-400);
+      }
+    }
+    & > div {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      &::-webkit-scrollbar {
+        height: 3px;
+      }
+      & > div {
+        cursor: pointer;
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $height;
+        background-color: var(--freeui-color-gray-100);
+        border-left: 1px solid var(--freeui-color-gray-200);
+        color: var(--freeui-color-gray-600);
+        white-space: nowrap;
+        transition: 0.2s linear;
+        .freeui--dark & {
+          background-color: var(--freeui-color-gray-700);
+          border-color: var(--freeui-color-gray-600);
+          color: var(--freeui-color-gray-400);
+        }
+        &:last-child {
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+        &.selected {
+          background-color: var(--freeui-color-blue-500);
+          color: var(--freeui-color-gray-50);
+        }
+        &:hover {
+          background-color: var(--freeui-color-blue-600);
+          color: var(--freeui-color-gray-50);
+        }
+      }
+    }
+  }
 }
 </style>
 

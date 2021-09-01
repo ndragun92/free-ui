@@ -2,9 +2,6 @@
   &-alert {
     padding: 20px;
     color: var(--freeui-color-gray-50);
-    &--bordered {
-      border: 1px solid red;
-    }
     &--primary {
       background-color: rgba(var(--freeui-color-blue-600-rgb), 0.15);
       border-color: rgba(var(--freeui-color-blue-600-rgb), 0.25);
@@ -41,6 +38,28 @@
       }
       &--full {
         border-radius: 9999px;
+      }
+    }
+    &__border{
+      &--xsm {
+        border-style: solid;
+        border-width: 1px;
+      }
+      &--sm {
+        border-style: solid;
+        border-width: 2px;
+      }
+      &--md {
+        border-style: solid;
+        border-width: 3px;
+      }
+      &--lg {
+        border-style: solid;
+        border-width: 4px;
+      }
+      &--xlg {
+        border-style: solid;
+        border-width: 5px;
       }
     }
   }
