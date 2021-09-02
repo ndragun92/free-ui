@@ -60,7 +60,7 @@
         contenteditable="true"
         role="alert"
         spellcheck="false"
-        @blur="onBlur"
+        @blur="onBlurUpdateContent"
         @keypress.enter.prevent
         v-text="content"
       />
@@ -74,46 +74,45 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, mixins } from 'nuxt-property-decorator'
 import InternalCodeClipboard from '~/components/Internal/Code/Clipboard/InternalCodeClipboard.vue'
 import InternalCodeVariants from '~/components/Internal/Code/Variants/InternalCodeVariants.vue'
-
-type VariantsType =
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'info'
-  | 'warning'
-  | 'error'
-  | 'light'
-  | 'dark'
-
-type SizesType = 'xsm' | 'sm' | 'md' | 'lg' | 'xlg'
+import {
+  OptionsBaseInterface,
+  SizesBaseType,
+  VariantsBaseType,
+} from '~/components/External/Elements/_Logic/Interfaces/ElementsInterface'
+import ElementsMixin from '~/components/External/Elements/_Logic/Mixins/ElementsMixin'
 
 interface TypeInterface {
   name: string
-  value: VariantsType
+  value: VariantsBaseType
 }
 
 interface BorderInterface {
   name: string
-  value: SizesType
+  value: SizesBaseType
 }
 
 interface RadiusInterface {
   name: string
-  value: SizesType | 'full'
+  value: SizesBaseType | 'full'
+}
+
+interface OptionsInterface extends OptionsBaseInterface {
+  data: TypeInterface[] | BorderInterface[] | RadiusInterface[]
 }
 
 @Component({
   components: { InternalCodeVariants, InternalCodeClipboard },
 })
-export default class FreeAlert extends Vue {
+export default class FreeAlert extends mixins(ElementsMixin) {
   // Data
-  options = [
+  options: OptionsInterface[] = [
     {
       key: 'type',
       displayName: 'Type',
+      classPrefix: 'freeui-alert--',
       data: [
         {
           name: 'Primary',
@@ -152,6 +151,7 @@ export default class FreeAlert extends Vue {
     {
       key: 'border',
       displayName: 'Border',
+      classPrefix: 'freeui-alert__border--',
       data: [
         {
           name: 'None',
@@ -182,6 +182,7 @@ export default class FreeAlert extends Vue {
     {
       key: 'radius',
       displayName: 'Border radius',
+      classPrefix: 'freeui-alert__radius--',
       data: [
         {
           name: 'None',
@@ -216,49 +217,9 @@ export default class FreeAlert extends Vue {
   ]
 
   content: string = 'test'
-  type: VariantsType = 'primary'
+  type: VariantsBaseType = 'primary'
 
   border = null
   radius = null
-
-  // Getters
-  get returnClass() {
-    let classNames = `freeui-alert--${this.type}`
-    if (this.border) {
-      classNames += ` freeui-alert__border--${this.border}`
-    }
-    if (this.radius) {
-      classNames += ` freeui-alert__radius--${this.radius}`
-    }
-    return classNames
-  }
-
-  get returnHtmlExample() {
-    return `<div class="freeui-alert ${this.returnClass}" role="alert">${this.content}</div>`
-  }
-
-  // Methods
-  onBlur(e: IntersectionObserverEntry) {
-    this.content = e.target.textContent?.trim() || ''
-  }
-
-  savedVariants: string[] = []
-  onSaveVariant() {
-    if (this.savedVariants.includes(this.returnHtmlExample)) {
-      alert('This variant is already saved.')
-    } else {
-      this.savedVariants.push(this.returnHtmlExample)
-    }
-  }
-
-  onGetValue(key: string) {
-    // @ts-ignore
-    return this[key]
-  }
-
-  onSetValue(key: string, value: string) {
-    // @ts-ignore
-    this[key] = value
-  }
 }
 </script>
