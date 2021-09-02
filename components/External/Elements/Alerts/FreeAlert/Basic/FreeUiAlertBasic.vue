@@ -1,43 +1,7 @@
 <template>
   <div>
+    <h2>Basic</h2>
     <div class="freeuiI__codeBlock">
-      <!--      <div class="freeuiI__codeBlock-options">-->
-      <!--        <div></div>-->
-      <!--        <div>-->
-      <!--          <label>Type</label>-->
-      <!--          <select v-model="type" size="2">-->
-      <!--            <option value="primary">primary</option>-->
-      <!--            <option value="secondary">secondary</option>-->
-      <!--            <option value="success">success</option>-->
-      <!--            <option value="info">info</option>-->
-      <!--            <option value="warning">warning</option>-->
-      <!--            <option value="error">error</option>-->
-      <!--          </select>-->
-      <!--        </div>-->
-      <!--        <div>-->
-      <!--          <label>Border</label>-->
-      <!--          <select v-model="border" size="2">-->
-      <!--            <option :value="null">None</option>-->
-      <!--            <option value="xsm">xsm</option>-->
-      <!--            <option value="sm">sm</option>-->
-      <!--            <option value="md">md</option>-->
-      <!--            <option value="lg">lg</option>-->
-      <!--            <option value="xlg">xlg</option>-->
-      <!--          </select>-->
-      <!--        </div>-->
-      <!--        <div>-->
-      <!--          <label>Border radius</label>-->
-      <!--          <select v-model="radius" size="2">-->
-      <!--            <option :value="null">None</option>-->
-      <!--            <option value="xsm">xsm</option>-->
-      <!--            <option value="sm">sm</option>-->
-      <!--            <option value="md">md</option>-->
-      <!--            <option value="lg">lg</option>-->
-      <!--            <option value="xlg">xlg</option>-->
-      <!--            <option value="full">full</option>-->
-      <!--          </select>-->
-      <!--        </div>-->
-      <!--      </div>-->
       <div
         v-for="(option, optionIndex) in options"
         :key="`${option.key}--${optionIndex}`"
@@ -106,7 +70,7 @@ interface OptionsInterface extends OptionsBaseInterface {
 @Component({
   components: { InternalCodeVariants, InternalCodeClipboard },
 })
-export default class FreeAlert extends mixins(ElementsMixin) {
+export default class FreeUiAlertBasic extends mixins(ElementsMixin) {
   // Data
   options: OptionsInterface[] = [
     {
@@ -216,9 +180,9 @@ export default class FreeAlert extends mixins(ElementsMixin) {
     },
   ]
 
-  content: string = 'test'
-  type: VariantsBaseType = 'primary'
+  content: string = 'A simple alert—check it out!'
 
+  type: VariantsBaseType = 'primary'
   border = null
   radius = null
 }

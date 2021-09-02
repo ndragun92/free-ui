@@ -1,11 +1,11 @@
 <template>
   <div>
-    <free-alert />
+    <free-ui-alert />
   </div>
 </template>
 <script>
-import FreeAlert from '@/components/External/Elements/Alerts/FreeAlert/FreeAlert'
+import FreeUiAlert from '~/components/External/Elements/Alerts/FreeAlert/FreeUiAlert'
 export default {
-  components: { FreeAlert },
+  components: { FreeUiAlert },
 }
 </script>
