@@ -185,5 +185,10 @@ export default class FreeUiAlertBasic extends mixins(ElementsMixin) {
   type: VariantsBaseType = 'primary'
   border = null
   radius = null
+
+  // Getters
+  get returnHtmlExample() {
+    return `<div class="freeui-alert ${this.returnClass}" role="alert">${this.content}</div>`
+  }
 }
 </script>

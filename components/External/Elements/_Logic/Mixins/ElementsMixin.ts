@@ -21,7 +21,7 @@ export default class ElementsMixin extends Vue {
   }
 
   get returnHtmlExample() {
-    return `<div class="freeui-alert ${this.returnClass}" role="alert">${this.content}</div>`
+    return ''
   }
 
   // Methods

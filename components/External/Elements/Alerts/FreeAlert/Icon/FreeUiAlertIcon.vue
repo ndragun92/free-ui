@@ -26,8 +26,9 @@
         spellcheck="false"
         @blur="onBlurUpdateContent"
         @keypress.enter.prevent
-        v-text="content"
-      />
+      >
+        <i>Icon</i>{{ content }}
+      </div>
       <internal-code-clipboard
         :code="returnHtmlExample"
         @save-variant="onSaveVariant"
@@ -185,5 +186,10 @@ export default class FreeUiAlertIcon extends mixins(ElementsMixin) {
   type: VariantsBaseType = 'primary'
   border = null
   radius = null
+
+  // Getters
+  get returnHtmlExample() {
+    return `<div class="freeui-alert ${this.returnClass}" role="alert"><i>Icon</i>${this.content}</div>`
+  }
 }
 </script>
