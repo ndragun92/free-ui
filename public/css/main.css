@@ -337,39 +337,6 @@ template {
   display: none;
 }
 
-html {
-  font-size: 62.5%;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  box-sizing: border-box;
-  -ms-overflow-style: scrollbar;
-}
-
-*:focus {
-  outline: none;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
-body {
-  font-family: var(--freeui-font-family);
-  font-size: 1.4rem;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-.freeui-h1 {
-  font-size: 20px;
-}
-
 :root {
   --freeui-color-gray-50: #F9FAFB;
   --freeui-color-gray-50-rgb: 249, 250, 251;
@@ -437,6 +404,39 @@ body {
   --freeui-font-family: system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+html {
+  font-size: 62.5%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar;
+}
+
+*:focus {
+  outline: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--freeui-font-family);
+  font-size: 1.4rem;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.freeui-h1 {
+  font-size: 20px;
 }
 
 .freeui-alert {
