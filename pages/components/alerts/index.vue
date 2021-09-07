@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import FreeUiAlert from '~/components/External/Elements/Alerts/FreeAlert/FreeUiAlert'
+import FreeUiAlert from '~/components/External/Elements/Alerts/FreeUiAlert/FreeUiAlert'
 export default {
   components: { FreeUiAlert },
 }

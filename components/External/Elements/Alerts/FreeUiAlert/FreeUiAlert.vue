@@ -7,8 +7,8 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import FreeUiAlertBasic from '~/components/External/Elements/Alerts/FreeAlert/Basic/FreeUiAlertBasic.vue'
-import FreeUiAlertIcon from '~/components/External/Elements/Alerts/FreeAlert/Icon/FreeUiAlertIcon.vue'
+import FreeUiAlertBasic from '~/components/External/Elements/Alerts/FreeUiAlert/Basic/FreeUiAlertBasic.vue'
+import FreeUiAlertIcon from '~/components/External/Elements/Alerts/FreeUiAlert/Icon/FreeUiAlertIcon.vue'
 @Component({
   components: { FreeUiAlertIcon, FreeUiAlertBasic },
 })
